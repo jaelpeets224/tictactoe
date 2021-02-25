@@ -1,26 +1,36 @@
-let turn= 0;
-let currentPlayer="x"
-let player1 = "x"
-let player2= "o"
+let turnsTaken= 0;
+let currentPlayer="X"
+let player1 = "X"
+let player2= "O"
 let gamehasEnd= false; 
 function performLogic(buttonId,tile){
   console.log(buttonId, tile);
   $(buttonId).hide(); 
   $(tile).text(currentPlayer)
-  (switchPlayer() 
-   
- function switchPlayer(){
-  if(currentPlayer==="x"){ 
-  currentPlayer="o"}
-  if(currentPlayer==="o"){
-    currentPlayer="x"}
-  
-}}
+  switchPlayers();
+   }
+function switchPlayers() {
+    turnsTaken = turnsTaken + 1;
+    if (currentPlayer === "X") {
+        currentPlayer = "O";
+    } else if (currentPlayer === "O") {
+        currentPlayer = "X";
+    }
+}
+
+  function threeInARow(tileId1,tileID2,tileID3)
+{}
+function checkVertical() 
+  {     let won1 = threeInARow("#tile1", "#tile4", "#tile7");  
+   let won2 = threeInARow("#tile2", "#tile5", "#tile8"); 
+   let won3 = threeInARow("#tile3", "#tile6", "#tile9");   
+   if (won1 || won2 || won3     ) 
+   {    return true;  }
+   return false;}
 
 $("#button1").click(function() {
     performLogic("#button1","#tile1");
-});
-
+})
 
 $("#button2").click(function() {
     performLogic("#button2","#tile2");
